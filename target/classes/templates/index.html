@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste des articles</title>
+
+<link th:rel="stylesheet" th:href="@{/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-3.6.1.js}"></script>
+
+</head>
+<body>
+
+
+<div class="container">
+	<h2>Liste des articles</h2>
+	
+	<div>
+	<a th:href="@{/addArt}" class="btn btn-primary">Ajouter un article</a>
+	</div>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th> <th>Nom</th><th>Description</th>
+				<th>Prix</th><th>Actions</th>
+		 	</tr>
+		 </thead>
+		 <tbody>
+		 	<tr th:each="art, cmpt : ${articles}">
+		 		<td th:text="${cmpt.count}"></td>
+		 		<td th:text="${art.nom}"></td>
+		 		<td th:text="${art.description}"></td>
+		 		<td th:text="${art.prix}"></td>
+		 		<td>Modifier</td>
+		 	</tr>
+		 </tbody>
+	
+	</table>
+</div>
+	
+</body>
+</html>
